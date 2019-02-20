@@ -1,0 +1,20 @@
+#!/usr/bin/sh
+### BEGIN INIT INFO
+# Short-Description: Start TempObject.py at boot time
+# Description:       Collect GTB data from IoTs in the NR3 building (Cesi-BdF)
+### END INIT INFO
+
+[Unit]
+Description= 'Collecte de données des objects connectés dans la base de données'
+After=networking.service
+
+[Service]
+User=adminbdf
+Type=simple
+RemainAfterExit=yes
+WorkingDirectory=/opt/BDF/PythonEnv
+ExecStart=/opt/BDF/PythonEnv/TempObject.py
+ExecStop=/opt/BDF/PythonEnv/TempObject.py
+
+[Install]
+WantedBy=multi-user.target

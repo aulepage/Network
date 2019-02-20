@@ -1,0 +1,27 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Short-Description: Start MyBacnetClient.py at boot time
+# Description:       Controls and collect GTB data from the NR3 building (Cesi-BdF)
+### END INIT INFO
+
+[Unit]
+Description= 'Gestion de la pompe à chaleur : chauffage ou climatisation'
+After=networking.service
+
+[Service]
+User=adminbdf
+Type=simple
+RemainAfterExit=yes
+
+
+WorkingDirectory=/opt/BDF/PythonEnv
+ExecStart=/opt/BDF/PythonEnv/MyBacnetClient.py
+ExecStop=/opt/BDF/PythonEnv/MyBacnetClient.py
+ExecReload=/opt/BDF/PythonEnv/MyBacnetClient.py
+
+# Restart=on-failure
+
+# Alias=mybacnetclient
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Short-Description: Start vmc.py at boot time
+# Description:       Controls and collect GTB data from vmc in the NR3 building (Cesi-BdF)
+### END INIT INFO
+
+[Unit]
+Description= 'Gestion et contrôle de la vmc'
+After=networking.service
+
+[Service]
+User=adminbdf
+Type=simple
+RemainAfterExit=yes
+WorkingDirectory=/opt/BDF/PythonEnv
+ExecStart=/opt/BDF/PythonEnv/vmc.py
+ExecStop=/opt/BDF/PythonEnv/vmc.py
+ExecReload=/opt/BDF/PythonEnv/vmc.py
+
+# Restart=on-failure
+
+# Alias=mybacnetclient
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+#!/bin/sh
+###BEGIN INIT INFO
+# Short-Description: Start modbus.py at boot time
+# Description:       Collect GTB data from windows in the NR3 building (Cesi-BdF)
+### END INIT INFO
+
+[Unit]
+Description= 'Collecte des données depuis les fenêtres'
+After=networking.service
+
+[Service]
+User=adminbdf
+Type=simple
+RemainAfterExit=yes
+Workingdirectory=/opt/BDF/PythonEnv
+ExecStart=/opt/BDF/PythonEnv/modbus.py
+ExecStop=/opt/BDF/PythonEnv/modbus.py
+ExecReload=/opt/BDF/PythonEnv/modbus.py
+
+[Install]
+WantedBy=multi-user.target
