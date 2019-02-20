@@ -1,7 +1,5 @@
 # Faire un daemon à partir d'un script
 
-source : https://thingsmatic.com/2016/06/18/daemonize-that-python-script/
-
 Nous avons besoin de lancer des scripts sous la forme de service (aussi appelés daemon sous linux)
 Sous Debian 9, on passe par systemd qui permet d'en créer de nouveau.
 
